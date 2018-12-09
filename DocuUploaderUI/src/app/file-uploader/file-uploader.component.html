@@ -1,3 +1,16 @@
-<p>
-  file-uploader works!
-</p>
+
+<form [formGroup]="uploadForm" (ngSubmit)="uploadFile()">
+  <h1>File Upload Utility</h1>
+  <div class="form-group" style="padding: 35px;" >
+    <label  for="fileName" class="textColor col-md-4">Select a file</label>
+    <input formControlName="fileName" type="file" class="form-control col-md-4" >
+    <div *ngIf="!uploadForm.controls.fileName.valid" class="alert alert-danger col-md-4">
+        <span *ngIf="uploadForm.controls.fileName.errors.required">
+         File Name is required
+        </span>
+      </div>
+  </div>
+  <div class="form-group">
+      <button type="submit" class="btn btn-primary">Upload</button>
+  </div>
+</form>
