@@ -1,3 +1,10 @@
-<p>
-  file-grid works!
-</p>
+<div class="right" *ngIf="uploadedFiles">
+
+  <h3>Uploaded Files</h3>
+  <ul>
+    <li *ngFor="let uploadfile of uploadedFiles | async">
+      <a [href]="uploadfile.fileName" target="_blank">{{ uploadfile.path }}</a>
+    </li>
+  </ul>
+
+</div>

@@ -6,6 +6,8 @@ import { AppComponent } from './app.component';
 import { FileUploaderComponent } from './file-uploader/file-uploader.component';
 import { FileGridComponent } from './file-grid/file-grid.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { StoreModule } from '@ngrx/store';
+import { uploadReducer } from './stateHandlers/file.upload.reducer';
 
 @NgModule({
   declarations: [
@@ -16,7 +18,10 @@ import { ReactiveFormsModule } from '@angular/forms';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule 
+    ReactiveFormsModule,
+    StoreModule.forRoot({
+      uploadFile: uploadReducer
+    }) 
   ],
   providers: [],
   bootstrap: [AppComponent]
